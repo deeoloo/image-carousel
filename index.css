@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: black;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.active-image-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.active-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 10px; 
+    overflow-x: auto; /
+    padding: 0; 
+    width: 100%; 
+    scrollbar-width: none; 
+}
+
+.thumbnail-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.thumbnail {
+    flex: 1 0 auto; 
+    height: 100px; 
+    min-width: 0; 
+    object-fit: cover; 
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.thumbnail.active {
+    border-color: #0066cc;
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+.thumbnail:hover {
+    border-color:white;
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+/* Scrollbar styling */
+.thumbnail-container::-webkit-scrollbar {
+    height: 5px;
+}
+
+.thumbnail-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.thumbnail-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.thumbnail-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
